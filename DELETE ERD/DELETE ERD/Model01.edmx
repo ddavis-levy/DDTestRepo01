@@ -1,0 +1,2379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProdLevyORDERSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_STATUS_FLAG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ORIG_SYSTEM_REF" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_NUMBER" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_PROFILE_CLASS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ID" Type="int" Nullable="false" />
+          <Property Name="CREDIT_HOLD" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CUSTOMER_NAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="PARENT_CUSTOMER_NAME" Type="varchar" MaxLength="150" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CUSTOMER_TAX_REG_NBR" Type="varchar" MaxLength="50" />
+          <Property Name="CUSTOMER_TAX_ID" Type="varchar" MaxLength="50" />
+          <Property Name="CUSTOMER_CATEGORY_ID" Type="int" />
+          <Property Name="CUSTOMER_TYPE_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE2" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE3" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE4" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE5" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE6" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE7" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE8" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE9" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE10" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE11" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE12" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE13" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE14" Type="varchar(max)" />
+          <Property Name="ATTRIBUTE15" Type="varchar(max)" />
+          <Property Name="SAP_CUTOVER" Type="date" />
+          <Property Name="LOCATION_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_ADDRESS">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ADDRESS_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ADDRESS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_PRIMARY_SITE_USE_FLAG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ADDRESS_ORIG_SYSTEM_REF" Type="int" />
+          <Property Name="ADDRESS1" Type="varchar(max)" />
+          <Property Name="ADDRESS2" Type="varchar(max)" />
+          <Property Name="ADDRESS3" Type="varchar(max)" />
+          <Property Name="ADDRESS4" Type="varchar(max)" />
+          <Property Name="CITY" Type="varchar" MaxLength="100" />
+          <Property Name="STATE" Type="varchar" MaxLength="100" />
+          <Property Name="COUNTY" Type="varchar" MaxLength="100" />
+          <Property Name="ZIP_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="100" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_ADDRESS_MASTER_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CATEGORY">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UDPATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT">
+          <Key>
+            <PropertyRef Name="CONTACT_ID" />
+          </Key>
+          <Property Name="CONTACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_CONTACT_TYPE_ID" Type="int" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="50" />
+          <Property Name="NAME_FIRST" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="NAME_LAST" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar" MaxLength="200" />
+          <Property Name="PHONE_PRIMARY" Type="varchar" MaxLength="10" />
+          <Property Name="PHONE_CELL" Type="varchar" MaxLength="10" />
+          <Property Name="PHONE_FAX" Type="varchar" MaxLength="10" />
+          <Property Name="PHONE_EMERGENCY" Type="varchar" MaxLength="10" />
+          <Property Name="SUITE_ADMIN" Type="char" MaxLength="1" />
+          <Property Name="WEB_LOGIN" Type="varchar" MaxLength="200" />
+          <Property Name="WEB_PASSWORD" Type="varchar" MaxLength="200" />
+          <Property Name="WEB_ACCESS" Type="char" MaxLength="1" />
+          <Property Name="WEB_STATUS" Type="char" MaxLength="1" />
+          <Property Name="WEB_CUSTOMER_HISTORY" Type="char" MaxLength="1" />
+          <Property Name="APPLY_SUITE_PREFERENCES" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="CONTACT_MASTER_ID" Type="int" />
+          <Property Name="CUSTOMER_MASTER_CONTACT_ORIG_SYSTEM_REF" Type="int" />
+          <Property Name="CUSTOMER_MASTER_CONTACT_PHONE_ORIG_SYSTEM_REF" Type="int" />
+          <Property Name="CONTACT_PHONE_MASTER_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_PHONE">
+          <Key>
+            <PropertyRef Name="CONTACT_PHONE_ID" />
+          </Key>
+          <Property Name="CONTACT_PHONE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONTACT_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="PHONE_PRIMARY" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE_CELL" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE_FAX" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE_EMERGENCY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="CONTACT_PHONE_MASTER_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_TYPE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CONTACT_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONTACT_ID" Type="int" Nullable="false" />
+          <Property Name="WEB_RESPONSIBILITY_ID" Type="int" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CREDIT_CARD">
+          <Key>
+            <PropertyRef Name="CREDIT_CARD_ID" />
+          </Key>
+          <Property Name="CREDIT_CARD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="150" />
+          <Property Name="CREDIT_CARD_TYPE_ID" Type="int" Nullable="false" />
+          <Property Name="NUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NUMBER_ENCRYPTED" Type="varbinary" MaxLength="128" />
+          <Property Name="EXPIRATION" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EXPIRATION_ENCRYPTED" Type="varbinary" MaxLength="128" />
+          <Property Name="ZIP_CODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ON_FILE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AUTHORIZED_SIGNERS" Type="varchar(max)" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="TOKEN_VAULT_ID" Type="int" />
+          <Property Name="ALL_SUITES" Type="char" MaxLength="1" />
+          <Property Name="ALL_MENUS" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CREDIT_CARD_SUITE">
+          <Key>
+            <PropertyRef Name="CREDIT_CARD_SUITE_ID" />
+          </Key>
+          <Property Name="CREDIT_CARD_SUITE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CREDIT_CARD_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_GENERAL_PREFERENCES">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="APPLY_PREFERENCES" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRE_ORDER_BILLING_TYPE_ID" Type="int" />
+          <Property Name="ADD_ON_BILLING_TYPE_ID" Type="int" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE2" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE3" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE4" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE5" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE6" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE7" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE8" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE9" Type="varchar(max)" />
+          <Property Name="ATTRIBUTE10" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_NOTE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="NOTE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="NOTE_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PAR">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PAR_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PAR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_SUITE_ID" Type="int" />
+          <Property Name="INHERITED_CUSTOMER_PAR_ID" Type="int" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PAR_LINES">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PAR_LINES_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PAR_LINES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_PAR_ID" Type="int" Nullable="false" />
+          <Property Name="ITEM_ID" Type="int" Nullable="false" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+          <Property Name="ACTIVE" Type="bit" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PREFERENCE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PREFERENCE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="int" Nullable="false" />
+          <Property Name="VALUE" Type="char" MaxLength="1" />
+          <Property Name="BILLING_TYPE_ID" Type="int" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE_LIST">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="int" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="REQUIRED" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_SUITE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_SUITE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_ID" Type="int" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="VIP" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LIQUOR_RESTOCK" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LOCK_LIQUOR_CABINET" Type="char" MaxLength="1" />
+          <Property Name="LOCK_REFRIGERATOR" Type="char" MaxLength="1" />
+          <Property Name="DESSERT_CART" Type="char" MaxLength="1" />
+          <Property Name="COLLECT_CREDIT_CARD" Type="char" MaxLength="1" />
+          <Property Name="SUITE_ATTENDANT" Type="varchar" MaxLength="150" />
+          <Property Name="DISCOUNT_TYPE_ID" Type="int" Nullable="false" />
+          <Property Name="DISCOUNT_AMOUNT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DISCOUNT_PERCENTAGE" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NOTE" Type="text" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE2" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE3" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE4" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE5" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE6" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE7" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE8" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE9" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE10" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE11" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE12" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE13" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE14" Type="varchar(max)" />
+          <Property Name="ATTRIBUTE15" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE_NOTE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="SUITE_ID" />
+            <PropertyRef Name="EFFECTIVE_START_DATE" />
+            <PropertyRef Name="NOTE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_ID" Type="int" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="NOTE_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE_PREFERENCE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_SUITE_PREFERENCE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_SUITE_PREFERENCE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="int" Nullable="false" />
+          <Property Name="VALUE" Type="char" MaxLength="1" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_TYPE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_TYPE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUITE">
+          <Key>
+            <PropertyRef Name="SUITE_ID" />
+          </Key>
+          <Property Name="SUITE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PANTRY_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_TYPE_ID" Type="int" />
+          <Property Name="SUITE_NUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CAPACITY" Type="int" Nullable="false" />
+          <Property Name="MAX_CHAFFERS" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE2" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE3" Type="varchar" MaxLength="25" />
+          <Property Name="ATTRIBUTE4" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE5" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE6" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE7" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE8" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE9" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE10" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE11" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE12" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE13" Type="varchar" MaxLength="150" />
+          <Property Name="ATTRIBUTE14" Type="varchar(max)" />
+          <Property Name="ATTRIBUTE15" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SUITE_PREFERENCE_LIST">
+          <Key>
+            <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+          </Key>
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUITE_PREFERENCE_LOCATION_DETAILS">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+            <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            <PropertyRef Name="SUITE_PREFERENCE_LOCATION_DETAILS_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="int" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="REQUIRED" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LOCATION_DETAILS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUITE_TYPE">
+          <Key>
+            <PropertyRef Name="SUITE_TYPE_ID" />
+          </Key>
+          <Property Name="SUITE_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SHORT_DESCRIPTION" Type="varchar" MaxLength="40" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="datetime" Nullable="false" />
+          <Property Name="EFFECTIVE_END_DATE" Type="datetime" />
+          <Property Name="CREATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="int" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE">
+          <End Role="CUSTOMER_CONTACT_TYPE" Type="Self.CUSTOMER_CONTACT_TYPE" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT_TYPE">
+              <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_PHONE" Type="Self.CUSTOMER_CONTACT_PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_PHONE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT">
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_PHONE" Type="Self.CUSTOMER_CONTACT_PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CONTACT_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_PHONE">
+              <PropertyRef Name="CONTACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CUSTOMER_CATEGORY">
+          <End Role="CUSTOMER_CATEGORY" Type="Self.CUSTOMER_CATEGORY" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CATEGORY">
+              <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CUSTOMER_TYPE">
+          <End Role="CUSTOMER_TYPE" Type="Self.CUSTOMER_TYPE" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_TYPE">
+              <PropertyRef Name="CUSTOMER_TYPE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_GENERAL_PREFERENCES" Type="Self.CUSTOMER_GENERAL_PREFERENCES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_GENERAL_PREFERENCES">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER_PAR">
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PAR1" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR1">
+              <PropertyRef Name="INHERITED_CUSTOMER_PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER_SUITE">
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_SUITE">
+              <PropertyRef Name="CUSTOMER_SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR">
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="1" />
+          <End Role="CUSTOMER_PAR_LINES" Type="Self.CUSTOMER_PAR_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR_LINES">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE" Type="Self.CUSTOMER_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST">
+          <End Role="CUSTOMER_PREFERENCE_LIST" Type="Self.CUSTOMER_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE" Type="Self.CUSTOMER_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PREFERENCE_LIST">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+          <End Role="CUSTOMER_PREFERENCE_LIST" Type="Self.CUSTOMER_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS" Type="Self.CUSTOMER_PREFERENCE_LOCATION_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PREFERENCE_LIST">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE_PREFERENCE" Type="Self.CUSTOMER_SUITE_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST">
+          <End Role="SUITE_PREFERENCE_LIST" Type="Self.SUITE_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE_PREFERENCE" Type="Self.CUSTOMER_SUITE_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_PREFERENCE_LIST">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE_PREFERENCE">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY">
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Type="Self.CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CONTACT_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+              <PropertyRef Name="CONTACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARD_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD" Type="Self.CUSTOMER_CREDIT_CARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARDSUITE_CARDID">
+          <End Role="CUSTOMER_CREDIT_CARD" Type="Self.CUSTOMER_CREDIT_CARD" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD_SUITE" Type="Self.CUSTOMER_CREDIT_CARD_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CREDIT_CARD">
+              <PropertyRef Name="CREDIT_CARD_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD_SUITE">
+              <PropertyRef Name="CREDIT_CARD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARDSUITE_SUITEID">
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD_SUITE" Type="Self.CUSTOMER_CREDIT_CARD_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD_SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERLOCATION_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_ADDRESS" Type="Self.CUSTOMER_ADDRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_ADDRESS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERNOTE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_NOTE" Type="Self.CUSTOMER_NOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_NOTE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERSUITE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERSUITE_SUITE">
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+          <End Role="SUITE_PREFERENCE_LIST" Type="Self.SUITE_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="SUITE_PREFERENCE_LOCATION_DETAILS" Type="Self.SUITE_PREFERENCE_LOCATION_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_PREFERENCE_LIST">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="SUITE_PREFERENCE_LOCATION_DETAILS">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUITETYPE_SUITE">
+          <End Role="SUITE_TYPE" Type="Self.SUITE_TYPE" Multiplicity="0..1" />
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_TYPE">
+              <PropertyRef Name="SUITE_TYPE_ID" />
+            </Principal>
+            <Dependent Role="SUITE">
+              <PropertyRef Name="SUITE_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProdLevyORDERSModelStoreContainer">
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_ADDRESS" EntityType="Self.CUSTOMER_ADDRESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CATEGORY" EntityType="Self.CUSTOMER_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CONTACT" EntityType="Self.CUSTOMER_CONTACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CONTACT_PHONE" EntityType="Self.CUSTOMER_CONTACT_PHONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CONTACT_TYPE" EntityType="Self.CUSTOMER_CONTACT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" EntityType="Self.CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CREDIT_CARD" EntityType="Self.CUSTOMER_CREDIT_CARD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_CREDIT_CARD_SUITE" EntityType="Self.CUSTOMER_CREDIT_CARD_SUITE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_GENERAL_PREFERENCES" EntityType="Self.CUSTOMER_GENERAL_PREFERENCES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_NOTE" EntityType="Self.CUSTOMER_NOTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PAR" EntityType="Self.CUSTOMER_PAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PAR_LINES" EntityType="Self.CUSTOMER_PAR_LINES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PREFERENCE" EntityType="Self.CUSTOMER_PREFERENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PREFERENCE_LIST" EntityType="Self.CUSTOMER_PREFERENCE_LIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS" EntityType="Self.CUSTOMER_PREFERENCE_LOCATION_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_SUITE" EntityType="Self.CUSTOMER_SUITE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_SUITE_NOTE" EntityType="Self.CUSTOMER_SUITE_NOTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_SUITE_PREFERENCE" EntityType="Self.CUSTOMER_SUITE_PREFERENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_TYPE" EntityType="Self.CUSTOMER_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUITE" EntityType="Self.SUITE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUITE_PREFERENCE_LIST" EntityType="Self.SUITE_PREFERENCE_LIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUITE_PREFERENCE_LOCATION_DETAILS" EntityType="Self.SUITE_PREFERENCE_LOCATION_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUITE_TYPE" EntityType="Self.SUITE_TYPE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE" Association="Self.FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE">
+            <End Role="CUSTOMER_CONTACT_TYPE" EntitySet="CUSTOMER_CONTACT_TYPE" />
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER" Association="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_CONTACT_PHONE" EntitySet="CUSTOMER_CONTACT_PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT" Association="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT">
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+            <End Role="CUSTOMER_CONTACT_PHONE" EntitySet="CUSTOMER_CONTACT_PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CUSTOMER_CATEGORY" Association="Self.FK_CUSTOMER_CUSTOMER_CATEGORY">
+            <End Role="CUSTOMER_CATEGORY" EntitySet="CUSTOMER_CATEGORY" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CUSTOMER_TYPE" Association="Self.FK_CUSTOMER_CUSTOMER_TYPE">
+            <End Role="CUSTOMER_TYPE" EntitySet="CUSTOMER_TYPE" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER" Association="Self.FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_GENERAL_PREFERENCES" EntitySet="CUSTOMER_GENERAL_PREFERENCES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER" Association="Self.FK_CUSTOMER_PAR_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER_PAR" Association="Self.FK_CUSTOMER_PAR_CUSTOMER_PAR">
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+            <End Role="CUSTOMER_PAR1" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER_SUITE" Association="Self.FK_CUSTOMER_PAR_CUSTOMER_SUITE">
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR" Association="Self.FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR">
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+            <End Role="CUSTOMER_PAR_LINES" EntitySet="CUSTOMER_PAR_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_CUSTOMER" Association="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_PREFERENCE" EntitySet="CUSTOMER_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST" Association="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST">
+            <End Role="CUSTOMER_PREFERENCE_LIST" EntitySet="CUSTOMER_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_PREFERENCE" EntitySet="CUSTOMER_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE" Association="Self.FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+            <End Role="CUSTOMER_PREFERENCE_LIST" EntitySet="CUSTOMER_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS" EntitySet="CUSTOMER_PREFERENCE_LOCATION_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER" Association="Self.FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_SUITE_PREFERENCE" EntitySet="CUSTOMER_SUITE_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST" Association="Self.FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST">
+            <End Role="SUITE_PREFERENCE_LIST" EntitySet="SUITE_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_SUITE_PREFERENCE" EntitySet="CUSTOMER_SUITE_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY" Association="Self.FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY">
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+            <End Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" EntitySet="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARD_CUSTOMER" Association="Self.FK_CUSTOMERCREDITCARD_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_CREDIT_CARD" EntitySet="CUSTOMER_CREDIT_CARD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARDSUITE_CARDID" Association="Self.FK_CUSTOMERCREDITCARDSUITE_CARDID">
+            <End Role="CUSTOMER_CREDIT_CARD" EntitySet="CUSTOMER_CREDIT_CARD" />
+            <End Role="CUSTOMER_CREDIT_CARD_SUITE" EntitySet="CUSTOMER_CREDIT_CARD_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARDSUITE_SUITEID" Association="Self.FK_CUSTOMERCREDITCARDSUITE_SUITEID">
+            <End Role="SUITE" EntitySet="SUITE" />
+            <End Role="CUSTOMER_CREDIT_CARD_SUITE" EntitySet="CUSTOMER_CREDIT_CARD_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERLOCATION_CUSTOMER" Association="Self.FK_CUSTOMERLOCATION_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_ADDRESS" EntitySet="CUSTOMER_ADDRESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERNOTE_CUSTOMER" Association="Self.FK_CUSTOMERNOTE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_NOTE" EntitySet="CUSTOMER_NOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERSUITE_CUSTOMER" Association="Self.FK_CUSTOMERSUITE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERSUITE_SUITE" Association="Self.FK_CUSTOMERSUITE_SUITE">
+            <End Role="SUITE" EntitySet="SUITE" />
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE" Association="Self.FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+            <End Role="SUITE_PREFERENCE_LIST" EntitySet="SUITE_PREFERENCE_LIST" />
+            <End Role="SUITE_PREFERENCE_LOCATION_DETAILS" EntitySet="SUITE_PREFERENCE_LOCATION_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUITETYPE_SUITE" Association="Self.FK_SUITETYPE_SUITE">
+            <End Role="SUITE_TYPE" EntitySet="SUITE_TYPE" />
+            <End Role="SUITE" EntitySet="SUITE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProdLevyORDERSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_MASTER_STATUS_FLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ORIG_SYSTEM_REF" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_PROFILE_CLASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREDIT_HOLD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PARENT_CUSTOMER_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CUSTOMER_TAX_REG_NBR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_TAX_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_CATEGORY_ID" Type="Int32" />
+          <Property Name="CUSTOMER_TYPE_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE4" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE5" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE6" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE7" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE8" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE9" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE10" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE11" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE12" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE13" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_CUTOVER" Type="DateTime" Precision="0" />
+          <Property Name="LOCATION_ID" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER_CONTACT_PHONE" Relationship="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_CONTACT_PHONE" />
+          <NavigationProperty Name="CUSTOMER_CATEGORY" Relationship="Self.FK_CUSTOMER_CUSTOMER_CATEGORY" FromRole="CUSTOMER" ToRole="CUSTOMER_CATEGORY" />
+          <NavigationProperty Name="CUSTOMER_TYPE" Relationship="Self.FK_CUSTOMER_CUSTOMER_TYPE" FromRole="CUSTOMER" ToRole="CUSTOMER_TYPE" />
+          <NavigationProperty Name="CUSTOMER_GENERAL_PREFERENCES" Relationship="Self.FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_GENERAL_PREFERENCES" />
+          <NavigationProperty Name="CUSTOMER_PAR" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_PAR" />
+          <NavigationProperty Name="CUSTOMER_PREFERENCE" Relationship="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_PREFERENCE" />
+          <NavigationProperty Name="CUSTOMER_SUITE_PREFERENCE" Relationship="Self.FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_SUITE_PREFERENCE" />
+          <NavigationProperty Name="CUSTOMER_CREDIT_CARD" Relationship="Self.FK_CUSTOMERCREDITCARD_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_CREDIT_CARD" />
+          <NavigationProperty Name="CUSTOMER_ADDRESS" Relationship="Self.FK_CUSTOMERLOCATION_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_ADDRESS" />
+          <NavigationProperty Name="CUSTOMER_NOTE" Relationship="Self.FK_CUSTOMERNOTE_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_NOTE" />
+          <NavigationProperty Name="CUSTOMER_SUITE" Relationship="Self.FK_CUSTOMERSUITE_CUSTOMER" FromRole="CUSTOMER" ToRole="CUSTOMER_SUITE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_ADDRESS">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ADDRESS_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ADDRESS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_PRIMARY_SITE_USE_FLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_MASTER_ADDRESS_ORIG_SYSTEM_REF" Type="Int32" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_ADDRESS_MASTER_ID" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMERLOCATION_CUSTOMER" FromRole="CUSTOMER_ADDRESS" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CATEGORY">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CATEGORY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UDPATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK_CUSTOMER_CUSTOMER_CATEGORY" FromRole="CUSTOMER_CATEGORY" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT">
+          <Key>
+            <PropertyRef Name="CONTACT_ID" />
+          </Key>
+          <Property Name="CONTACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_CONTACT_TYPE_ID" Type="Int32" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME_FIRST" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME_LAST" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_PRIMARY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_CELL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_FAX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_EMERGENCY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SUITE_ADMIN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WEB_LOGIN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WEB_PASSWORD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WEB_ACCESS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WEB_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WEB_CUSTOMER_HISTORY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="APPLY_SUITE_PREFERENCES" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="CONTACT_MASTER_ID" Type="Int32" />
+          <Property Name="CUSTOMER_MASTER_CONTACT_ORIG_SYSTEM_REF" Type="Int32" />
+          <Property Name="CUSTOMER_MASTER_CONTACT_PHONE_ORIG_SYSTEM_REF" Type="Int32" />
+          <Property Name="CONTACT_PHONE_MASTER_ID" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER_CONTACT_TYPE" Relationship="Self.FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE" FromRole="CUSTOMER_CONTACT" ToRole="CUSTOMER_CONTACT_TYPE" />
+          <NavigationProperty Name="CUSTOMER_CONTACT_PHONE" Relationship="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT" FromRole="CUSTOMER_CONTACT" ToRole="CUSTOMER_CONTACT_PHONE" />
+          <NavigationProperty Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Relationship="Self.FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY" FromRole="CUSTOMER_CONTACT" ToRole="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_PHONE">
+          <Key>
+            <PropertyRef Name="CONTACT_PHONE_ID" />
+          </Key>
+          <Property Name="CONTACT_PHONE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONTACT_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="PHONE_PRIMARY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_CELL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_EMERGENCY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="CONTACT_PHONE_MASTER_ID" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER" FromRole="CUSTOMER_CONTACT_PHONE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER_CONTACT" Relationship="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT" FromRole="CUSTOMER_CONTACT_PHONE" ToRole="CUSTOMER_CONTACT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_TYPE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CONTACT_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_CONTACT" Relationship="Self.FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE" FromRole="CUSTOMER_CONTACT_TYPE" ToRole="CUSTOMER_CONTACT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" />
+          </Key>
+          <Property Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONTACT_ID" Type="Int32" Nullable="false" />
+          <Property Name="WEB_RESPONSIBILITY_ID" Type="Int32" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_CONTACT" Relationship="Self.FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY" FromRole="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" ToRole="CUSTOMER_CONTACT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CREDIT_CARD">
+          <Key>
+            <PropertyRef Name="CREDIT_CARD_ID" />
+          </Key>
+          <Property Name="CREDIT_CARD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CREDIT_CARD_TYPE_ID" Type="Int32" Nullable="false" />
+          <Property Name="NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUMBER_ENCRYPTED" Type="Binary" MaxLength="128" FixedLength="false" />
+          <Property Name="EXPIRATION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EXPIRATION_ENCRYPTED" Type="Binary" MaxLength="128" FixedLength="false" />
+          <Property Name="ZIP_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ON_FILE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AUTHORIZED_SIGNERS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="TOKEN_VAULT_ID" Type="Int32" />
+          <Property Name="ALL_SUITES" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ALL_MENUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMERCREDITCARD_CUSTOMER" FromRole="CUSTOMER_CREDIT_CARD" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER_CREDIT_CARD_SUITE" Relationship="Self.FK_CUSTOMERCREDITCARDSUITE_CARDID" FromRole="CUSTOMER_CREDIT_CARD" ToRole="CUSTOMER_CREDIT_CARD_SUITE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_CREDIT_CARD_SUITE">
+          <Key>
+            <PropertyRef Name="CREDIT_CARD_SUITE_ID" />
+          </Key>
+          <Property Name="CREDIT_CARD_SUITE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CREDIT_CARD_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_CREDIT_CARD" Relationship="Self.FK_CUSTOMERCREDITCARDSUITE_CARDID" FromRole="CUSTOMER_CREDIT_CARD_SUITE" ToRole="CUSTOMER_CREDIT_CARD" />
+          <NavigationProperty Name="SUITE" Relationship="Self.FK_CUSTOMERCREDITCARDSUITE_SUITEID" FromRole="CUSTOMER_CREDIT_CARD_SUITE" ToRole="SUITE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_GENERAL_PREFERENCES">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="APPLY_PREFERENCES" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PRE_ORDER_BILLING_TYPE_ID" Type="Int32" />
+          <Property Name="ADD_ON_BILLING_TYPE_ID" Type="Int32" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE4" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE5" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE6" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE7" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE8" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER" FromRole="CUSTOMER_GENERAL_PREFERENCES" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_NOTE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="NOTE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="NOTE_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMERNOTE_CUSTOMER" FromRole="CUSTOMER_NOTE" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PAR">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PAR_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PAR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_SUITE_ID" Type="Int32" />
+          <Property Name="INHERITED_CUSTOMER_PAR_ID" Type="Int32" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER" FromRole="CUSTOMER_PAR" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER_PAR1" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER_PAR" FromRole="CUSTOMER_PAR" ToRole="CUSTOMER_PAR1" />
+          <NavigationProperty Name="CUSTOMER_PAR2" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER_PAR" FromRole="CUSTOMER_PAR1" ToRole="CUSTOMER_PAR" />
+          <NavigationProperty Name="CUSTOMER_SUITE" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER_SUITE" FromRole="CUSTOMER_PAR" ToRole="CUSTOMER_SUITE" />
+          <NavigationProperty Name="CUSTOMER_PAR_LINES" Relationship="Self.FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR" FromRole="CUSTOMER_PAR" ToRole="CUSTOMER_PAR_LINES" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PAR_LINES">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PAR_LINES_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PAR_LINES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_PAR_ID" Type="Int32" Nullable="false" />
+          <Property Name="ITEM_ID" Type="Int32" Nullable="false" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_PAR" Relationship="Self.FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR" FromRole="CUSTOMER_PAR_LINES" ToRole="CUSTOMER_PAR" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PREFERENCE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PREFERENCE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" />
+          <Property Name="VALUE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BILLING_TYPE_ID" Type="Int32" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER" FromRole="CUSTOMER_PREFERENCE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER_PREFERENCE_LIST" Relationship="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST" FromRole="CUSTOMER_PREFERENCE" ToRole="CUSTOMER_PREFERENCE_LIST" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE_LIST">
+          <Key>
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+          </Key>
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_PREFERENCE" Relationship="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST" FromRole="CUSTOMER_PREFERENCE_LIST" ToRole="CUSTOMER_PREFERENCE" />
+          <NavigationProperty Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS" Relationship="Self.FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE" FromRole="CUSTOMER_PREFERENCE_LIST" ToRole="CUSTOMER_PREFERENCE_LOCATION_DETAILS" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            <PropertyRef Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="REQUIRED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CUSTOMER_PREFERENCE_LIST" Relationship="Self.FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE" FromRole="CUSTOMER_PREFERENCE_LOCATION_DETAILS" ToRole="CUSTOMER_PREFERENCE_LIST" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_SUITE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_SUITE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_ID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="VIP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LIQUOR_RESTOCK" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LOCK_LIQUOR_CABINET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LOCK_REFRIGERATOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DESSERT_CART" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="COLLECT_CREDIT_CARD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SUITE_ATTENDANT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DISCOUNT_TYPE_ID" Type="Int32" Nullable="false" />
+          <Property Name="DISCOUNT_AMOUNT" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DISCOUNT_PERCENTAGE" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE4" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE5" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE6" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE7" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE8" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE9" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE10" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE11" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE12" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE13" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMERSUITE_CUSTOMER" FromRole="CUSTOMER_SUITE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER_PAR" Relationship="Self.FK_CUSTOMER_PAR_CUSTOMER_SUITE" FromRole="CUSTOMER_SUITE" ToRole="CUSTOMER_PAR" />
+          <NavigationProperty Name="SUITE" Relationship="Self.FK_CUSTOMERSUITE_SUITE" FromRole="CUSTOMER_SUITE" ToRole="SUITE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE_NOTE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="SUITE_ID" />
+            <PropertyRef Name="EFFECTIVE_START_DATE" />
+            <PropertyRef Name="NOTE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_ID" Type="Int32" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NOTE_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_SUITE_PREFERENCE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_SUITE_PREFERENCE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_SUITE_PREFERENCE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" />
+          <Property Name="VALUE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER" FromRole="CUSTOMER_SUITE_PREFERENCE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="SUITE_PREFERENCE_LIST" Relationship="Self.FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST" FromRole="CUSTOMER_SUITE_PREFERENCE" ToRole="SUITE_PREFERENCE_LIST" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_TYPE">
+          <Key>
+            <PropertyRef Name="CUSTOMER_TYPE_ID" />
+          </Key>
+          <Property Name="CUSTOMER_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.FK_CUSTOMER_CUSTOMER_TYPE" FromRole="CUSTOMER_TYPE" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="SUITE">
+          <Key>
+            <PropertyRef Name="SUITE_ID" />
+          </Key>
+          <Property Name="SUITE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PANTRY_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_TYPE_ID" Type="Int32" />
+          <Property Name="SUITE_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAPACITY" Type="Int32" Nullable="false" />
+          <Property Name="MAX_CHAFFERS" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="ATTRIBUTE1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE4" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE5" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE6" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE7" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE8" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE9" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE10" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE11" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE12" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE13" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUSTOMER_CREDIT_CARD_SUITE" Relationship="Self.FK_CUSTOMERCREDITCARDSUITE_SUITEID" FromRole="SUITE" ToRole="CUSTOMER_CREDIT_CARD_SUITE" />
+          <NavigationProperty Name="CUSTOMER_SUITE" Relationship="Self.FK_CUSTOMERSUITE_SUITE" FromRole="SUITE" ToRole="CUSTOMER_SUITE" />
+          <NavigationProperty Name="SUITE_TYPE" Relationship="Self.FK_SUITETYPE_SUITE" FromRole="SUITE" ToRole="SUITE_TYPE" />
+        </EntityType>
+        <EntityType Name="SUITE_PREFERENCE_LIST">
+          <Key>
+            <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+          </Key>
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_SUITE_PREFERENCE" Relationship="Self.FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST" FromRole="SUITE_PREFERENCE_LIST" ToRole="CUSTOMER_SUITE_PREFERENCE" />
+          <NavigationProperty Name="SUITE_PREFERENCE_LOCATION_DETAILS" Relationship="Self.FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE" FromRole="SUITE_PREFERENCE_LIST" ToRole="SUITE_PREFERENCE_LOCATION_DETAILS" />
+        </EntityType>
+        <EntityType Name="SUITE_PREFERENCE_LOCATION_DETAILS">
+          <Key>
+            <PropertyRef Name="LOCATION_ID" />
+            <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            <PropertyRef Name="SUITE_PREFERENCE_LOCATION_DETAILS_ID" />
+          </Key>
+          <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LIST_ID" Type="Int32" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="REQUIRED" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="SUITE_PREFERENCE_LOCATION_DETAILS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="SUITE_PREFERENCE_LIST" Relationship="Self.FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE" FromRole="SUITE_PREFERENCE_LOCATION_DETAILS" ToRole="SUITE_PREFERENCE_LIST" />
+        </EntityType>
+        <EntityType Name="SUITE_TYPE">
+          <Key>
+            <PropertyRef Name="SUITE_TYPE_ID" />
+          </Key>
+          <Property Name="SUITE_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHORT_DESCRIPTION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" Nullable="false" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SUITEs" Relationship="Self.FK_SUITETYPE_SUITE" FromRole="SUITE_TYPE" ToRole="SUITE" />
+        </EntityType>
+        <Association Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_PHONE" Type="Self.CUSTOMER_CONTACT_PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_PHONE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CUSTOMER_CATEGORY">
+          <End Role="CUSTOMER_CATEGORY" Type="Self.CUSTOMER_CATEGORY" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CATEGORY">
+              <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CUSTOMER_TYPE">
+          <End Role="CUSTOMER_TYPE" Type="Self.CUSTOMER_TYPE" Multiplicity="0..1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_TYPE">
+              <PropertyRef Name="CUSTOMER_TYPE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_GENERAL_PREFERENCES" Type="Self.CUSTOMER_GENERAL_PREFERENCES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_GENERAL_PREFERENCES">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE" Type="Self.CUSTOMER_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE_PREFERENCE" Type="Self.CUSTOMER_SUITE_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARD_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD" Type="Self.CUSTOMER_CREDIT_CARD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERLOCATION_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_ADDRESS" Type="Self.CUSTOMER_ADDRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_ADDRESS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERNOTE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_NOTE" Type="Self.CUSTOMER_NOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_NOTE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERSUITE_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE">
+          <End Role="CUSTOMER_CONTACT_TYPE" Type="Self.CUSTOMER_CONTACT_TYPE" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT_TYPE">
+              <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CUSTOMER_CONTACT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT">
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_PHONE" Type="Self.CUSTOMER_CONTACT_PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CONTACT_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_PHONE">
+              <PropertyRef Name="CONTACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY">
+          <End Role="CUSTOMER_CONTACT" Type="Self.CUSTOMER_CONTACT" Multiplicity="1" />
+          <End Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Type="Self.CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CONTACT">
+              <PropertyRef Name="CONTACT_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+              <PropertyRef Name="CONTACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARDSUITE_CARDID">
+          <End Role="CUSTOMER_CREDIT_CARD" Type="Self.CUSTOMER_CREDIT_CARD" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD_SUITE" Type="Self.CUSTOMER_CREDIT_CARD_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_CREDIT_CARD">
+              <PropertyRef Name="CREDIT_CARD_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD_SUITE">
+              <PropertyRef Name="CREDIT_CARD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERCREDITCARDSUITE_SUITEID">
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="1" />
+          <End Role="CUSTOMER_CREDIT_CARD_SUITE" Type="Self.CUSTOMER_CREDIT_CARD_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_CREDIT_CARD_SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER_PAR">
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PAR1" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR1">
+              <PropertyRef Name="INHERITED_CUSTOMER_PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_CUSTOMER_SUITE">
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_SUITE">
+              <PropertyRef Name="CUSTOMER_SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR">
+          <End Role="CUSTOMER_PAR" Type="Self.CUSTOMER_PAR" Multiplicity="1" />
+          <End Role="CUSTOMER_PAR_LINES" Type="Self.CUSTOMER_PAR_LINES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PAR">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PAR_LINES">
+              <PropertyRef Name="CUSTOMER_PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST">
+          <End Role="CUSTOMER_PREFERENCE_LIST" Type="Self.CUSTOMER_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE" Type="Self.CUSTOMER_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PREFERENCE_LIST">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+          <End Role="CUSTOMER_PREFERENCE_LIST" Type="Self.CUSTOMER_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS" Type="Self.CUSTOMER_PREFERENCE_LOCATION_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_PREFERENCE_LIST">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+              <PropertyRef Name="CUSTOMER_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMERSUITE_SUITE">
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE" Type="Self.CUSTOMER_SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE">
+              <PropertyRef Name="SUITE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST">
+          <End Role="SUITE_PREFERENCE_LIST" Type="Self.SUITE_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="CUSTOMER_SUITE_PREFERENCE" Type="Self.CUSTOMER_SUITE_PREFERENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_PREFERENCE_LIST">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_SUITE_PREFERENCE">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUITETYPE_SUITE">
+          <End Role="SUITE_TYPE" Type="Self.SUITE_TYPE" Multiplicity="0..1" />
+          <End Role="SUITE" Type="Self.SUITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_TYPE">
+              <PropertyRef Name="SUITE_TYPE_ID" />
+            </Principal>
+            <Dependent Role="SUITE">
+              <PropertyRef Name="SUITE_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+          <End Role="SUITE_PREFERENCE_LIST" Type="Self.SUITE_PREFERENCE_LIST" Multiplicity="1" />
+          <End Role="SUITE_PREFERENCE_LOCATION_DETAILS" Type="Self.SUITE_PREFERENCE_LOCATION_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUITE_PREFERENCE_LIST">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Principal>
+            <Dependent Role="SUITE_PREFERENCE_LOCATION_DETAILS">
+              <PropertyRef Name="SUITE_PREFERENCE_LIST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProdLevyORDERSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="CUSTOMER_ADDRESS" EntityType="Self.CUSTOMER_ADDRESS" />
+          <EntitySet Name="CUSTOMER_CATEGORY" EntityType="Self.CUSTOMER_CATEGORY" />
+          <EntitySet Name="CUSTOMER_CONTACT" EntityType="Self.CUSTOMER_CONTACT" />
+          <EntitySet Name="CUSTOMER_CONTACT_PHONE" EntityType="Self.CUSTOMER_CONTACT_PHONE" />
+          <EntitySet Name="CUSTOMER_CONTACT_TYPE" EntityType="Self.CUSTOMER_CONTACT_TYPE" />
+          <EntitySet Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" EntityType="Self.CUSTOMER_CONTACT_WEB_RESPONSIBILITY" />
+          <EntitySet Name="CUSTOMER_CREDIT_CARD" EntityType="Self.CUSTOMER_CREDIT_CARD" />
+          <EntitySet Name="CUSTOMER_CREDIT_CARD_SUITE" EntityType="Self.CUSTOMER_CREDIT_CARD_SUITE" />
+          <EntitySet Name="CUSTOMER_GENERAL_PREFERENCES" EntityType="Self.CUSTOMER_GENERAL_PREFERENCES" />
+          <EntitySet Name="CUSTOMER_NOTE" EntityType="Self.CUSTOMER_NOTE" />
+          <EntitySet Name="CUSTOMER_PAR" EntityType="Self.CUSTOMER_PAR" />
+          <EntitySet Name="CUSTOMER_PAR_LINES" EntityType="Self.CUSTOMER_PAR_LINES" />
+          <EntitySet Name="CUSTOMER_PREFERENCE" EntityType="Self.CUSTOMER_PREFERENCE" />
+          <EntitySet Name="CUSTOMER_PREFERENCE_LIST" EntityType="Self.CUSTOMER_PREFERENCE_LIST" />
+          <EntitySet Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS" EntityType="Self.CUSTOMER_PREFERENCE_LOCATION_DETAILS" />
+          <EntitySet Name="CUSTOMER_SUITE" EntityType="Self.CUSTOMER_SUITE" />
+          <EntitySet Name="CUSTOMER_SUITE_NOTE" EntityType="Self.CUSTOMER_SUITE_NOTE" />
+          <EntitySet Name="CUSTOMER_SUITE_PREFERENCE" EntityType="Self.CUSTOMER_SUITE_PREFERENCE" />
+          <EntitySet Name="CUSTOMER_TYPE" EntityType="Self.CUSTOMER_TYPE" />
+          <EntitySet Name="SUITEs" EntityType="Self.SUITE" />
+          <EntitySet Name="SUITE_PREFERENCE_LIST" EntityType="Self.SUITE_PREFERENCE_LIST" />
+          <EntitySet Name="SUITE_PREFERENCE_LOCATION_DETAILS" EntityType="Self.SUITE_PREFERENCE_LOCATION_DETAILS" />
+          <EntitySet Name="SUITE_TYPE" EntityType="Self.SUITE_TYPE" />
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER" Association="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_CONTACT_PHONE" EntitySet="CUSTOMER_CONTACT_PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CUSTOMER_CATEGORY" Association="Self.FK_CUSTOMER_CUSTOMER_CATEGORY">
+            <End Role="CUSTOMER_CATEGORY" EntitySet="CUSTOMER_CATEGORY" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CUSTOMER_TYPE" Association="Self.FK_CUSTOMER_CUSTOMER_TYPE">
+            <End Role="CUSTOMER_TYPE" EntitySet="CUSTOMER_TYPE" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER" Association="Self.FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_GENERAL_PREFERENCES" EntitySet="CUSTOMER_GENERAL_PREFERENCES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER" Association="Self.FK_CUSTOMER_PAR_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_CUSTOMER" Association="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_PREFERENCE" EntitySet="CUSTOMER_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER" Association="Self.FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_SUITE_PREFERENCE" EntitySet="CUSTOMER_SUITE_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARD_CUSTOMER" Association="Self.FK_CUSTOMERCREDITCARD_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_CREDIT_CARD" EntitySet="CUSTOMER_CREDIT_CARD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERLOCATION_CUSTOMER" Association="Self.FK_CUSTOMERLOCATION_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_ADDRESS" EntitySet="CUSTOMER_ADDRESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERNOTE_CUSTOMER" Association="Self.FK_CUSTOMERNOTE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_NOTE" EntitySet="CUSTOMER_NOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERSUITE_CUSTOMER" Association="Self.FK_CUSTOMERSUITE_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE" Association="Self.FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE">
+            <End Role="CUSTOMER_CONTACT_TYPE" EntitySet="CUSTOMER_CONTACT_TYPE" />
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT" Association="Self.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT">
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+            <End Role="CUSTOMER_CONTACT_PHONE" EntitySet="CUSTOMER_CONTACT_PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY" Association="Self.FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY">
+            <End Role="CUSTOMER_CONTACT" EntitySet="CUSTOMER_CONTACT" />
+            <End Role="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" EntitySet="CUSTOMER_CONTACT_WEB_RESPONSIBILITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARDSUITE_CARDID" Association="Self.FK_CUSTOMERCREDITCARDSUITE_CARDID">
+            <End Role="CUSTOMER_CREDIT_CARD" EntitySet="CUSTOMER_CREDIT_CARD" />
+            <End Role="CUSTOMER_CREDIT_CARD_SUITE" EntitySet="CUSTOMER_CREDIT_CARD_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERCREDITCARDSUITE_SUITEID" Association="Self.FK_CUSTOMERCREDITCARDSUITE_SUITEID">
+            <End Role="SUITE" EntitySet="SUITEs" />
+            <End Role="CUSTOMER_CREDIT_CARD_SUITE" EntitySet="CUSTOMER_CREDIT_CARD_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER_PAR" Association="Self.FK_CUSTOMER_PAR_CUSTOMER_PAR">
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+            <End Role="CUSTOMER_PAR1" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_CUSTOMER_SUITE" Association="Self.FK_CUSTOMER_PAR_CUSTOMER_SUITE">
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR" Association="Self.FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR">
+            <End Role="CUSTOMER_PAR" EntitySet="CUSTOMER_PAR" />
+            <End Role="CUSTOMER_PAR_LINES" EntitySet="CUSTOMER_PAR_LINES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST" Association="Self.FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST">
+            <End Role="CUSTOMER_PREFERENCE_LIST" EntitySet="CUSTOMER_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_PREFERENCE" EntitySet="CUSTOMER_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE" Association="Self.FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+            <End Role="CUSTOMER_PREFERENCE_LIST" EntitySet="CUSTOMER_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_PREFERENCE_LOCATION_DETAILS" EntitySet="CUSTOMER_PREFERENCE_LOCATION_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMERSUITE_SUITE" Association="Self.FK_CUSTOMERSUITE_SUITE">
+            <End Role="SUITE" EntitySet="SUITEs" />
+            <End Role="CUSTOMER_SUITE" EntitySet="CUSTOMER_SUITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST" Association="Self.FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST">
+            <End Role="SUITE_PREFERENCE_LIST" EntitySet="SUITE_PREFERENCE_LIST" />
+            <End Role="CUSTOMER_SUITE_PREFERENCE" EntitySet="CUSTOMER_SUITE_PREFERENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUITETYPE_SUITE" Association="Self.FK_SUITETYPE_SUITE">
+            <End Role="SUITE_TYPE" EntitySet="SUITE_TYPE" />
+            <End Role="SUITE" EntitySet="SUITEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE" Association="Self.FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE">
+            <End Role="SUITE_PREFERENCE_LIST" EntitySet="SUITE_PREFERENCE_LIST" />
+            <End Role="SUITE_PREFERENCE_LOCATION_DETAILS" EntitySet="SUITE_PREFERENCE_LOCATION_DETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProdLevyORDERSModelStoreContainer" CdmEntityContainer="ProdLevyORDERSEntities">
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CUSTOMER_MASTER_STATUS_FLAG" ColumnName="CUSTOMER_MASTER_STATUS_FLAG" />
+                <ScalarProperty Name="CUSTOMER_MASTER_ORIG_SYSTEM_REF" ColumnName="CUSTOMER_MASTER_ORIG_SYSTEM_REF" />
+                <ScalarProperty Name="CUSTOMER_MASTER_NUMBER" ColumnName="CUSTOMER_MASTER_NUMBER" />
+                <ScalarProperty Name="CUSTOMER_MASTER_PROFILE_CLASS" ColumnName="CUSTOMER_MASTER_PROFILE_CLASS" />
+                <ScalarProperty Name="CUSTOMER_MASTER_ID" ColumnName="CUSTOMER_MASTER_ID" />
+                <ScalarProperty Name="CREDIT_HOLD" ColumnName="CREDIT_HOLD" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="PARENT_CUSTOMER_NAME" ColumnName="PARENT_CUSTOMER_NAME" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CUSTOMER_TAX_REG_NBR" ColumnName="CUSTOMER_TAX_REG_NBR" />
+                <ScalarProperty Name="CUSTOMER_TAX_ID" ColumnName="CUSTOMER_TAX_ID" />
+                <ScalarProperty Name="CUSTOMER_CATEGORY_ID" ColumnName="CUSTOMER_CATEGORY_ID" />
+                <ScalarProperty Name="CUSTOMER_TYPE_ID" ColumnName="CUSTOMER_TYPE_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+                <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+                <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+                <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+                <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+                <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+                <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+                <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+                <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+                <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+                <ScalarProperty Name="ATTRIBUTE11" ColumnName="ATTRIBUTE11" />
+                <ScalarProperty Name="ATTRIBUTE12" ColumnName="ATTRIBUTE12" />
+                <ScalarProperty Name="ATTRIBUTE13" ColumnName="ATTRIBUTE13" />
+                <ScalarProperty Name="ATTRIBUTE14" ColumnName="ATTRIBUTE14" />
+                <ScalarProperty Name="ATTRIBUTE15" ColumnName="ATTRIBUTE15" />
+                <ScalarProperty Name="SAP_CUTOVER" ColumnName="SAP_CUTOVER" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_ADDRESS">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_ADDRESS">
+              <MappingFragment StoreEntitySet="CUSTOMER_ADDRESS">
+                <ScalarProperty Name="CUSTOMER_ADDRESS_ID" ColumnName="CUSTOMER_ADDRESS_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CUSTOMER_MASTER_PRIMARY_SITE_USE_FLAG" ColumnName="CUSTOMER_MASTER_PRIMARY_SITE_USE_FLAG" />
+                <ScalarProperty Name="CUSTOMER_MASTER_ADDRESS_ORIG_SYSTEM_REF" ColumnName="CUSTOMER_MASTER_ADDRESS_ORIG_SYSTEM_REF" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS3" ColumnName="ADDRESS3" />
+                <ScalarProperty Name="ADDRESS4" ColumnName="ADDRESS4" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
+                <ScalarProperty Name="ZIP_CODE" ColumnName="ZIP_CODE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="CUSTOMER_ADDRESS_MASTER_ID" ColumnName="CUSTOMER_ADDRESS_MASTER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CATEGORY">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CATEGORY">
+              <MappingFragment StoreEntitySet="CUSTOMER_CATEGORY">
+                <ScalarProperty Name="CUSTOMER_CATEGORY_ID" ColumnName="CUSTOMER_CATEGORY_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UDPATED_BY" ColumnName="LAST_UDPATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CONTACT">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CONTACT">
+              <MappingFragment StoreEntitySet="CUSTOMER_CONTACT">
+                <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CUSTOMER_CONTACT_TYPE_ID" ColumnName="CUSTOMER_CONTACT_TYPE_ID" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="NAME_FIRST" ColumnName="NAME_FIRST" />
+                <ScalarProperty Name="NAME_LAST" ColumnName="NAME_LAST" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="PHONE_PRIMARY" ColumnName="PHONE_PRIMARY" />
+                <ScalarProperty Name="PHONE_CELL" ColumnName="PHONE_CELL" />
+                <ScalarProperty Name="PHONE_FAX" ColumnName="PHONE_FAX" />
+                <ScalarProperty Name="PHONE_EMERGENCY" ColumnName="PHONE_EMERGENCY" />
+                <ScalarProperty Name="SUITE_ADMIN" ColumnName="SUITE_ADMIN" />
+                <ScalarProperty Name="WEB_LOGIN" ColumnName="WEB_LOGIN" />
+                <ScalarProperty Name="WEB_PASSWORD" ColumnName="WEB_PASSWORD" />
+                <ScalarProperty Name="WEB_ACCESS" ColumnName="WEB_ACCESS" />
+                <ScalarProperty Name="WEB_STATUS" ColumnName="WEB_STATUS" />
+                <ScalarProperty Name="WEB_CUSTOMER_HISTORY" ColumnName="WEB_CUSTOMER_HISTORY" />
+                <ScalarProperty Name="APPLY_SUITE_PREFERENCES" ColumnName="APPLY_SUITE_PREFERENCES" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="CONTACT_MASTER_ID" ColumnName="CONTACT_MASTER_ID" />
+                <ScalarProperty Name="CUSTOMER_MASTER_CONTACT_ORIG_SYSTEM_REF" ColumnName="CUSTOMER_MASTER_CONTACT_ORIG_SYSTEM_REF" />
+                <ScalarProperty Name="CUSTOMER_MASTER_CONTACT_PHONE_ORIG_SYSTEM_REF" ColumnName="CUSTOMER_MASTER_CONTACT_PHONE_ORIG_SYSTEM_REF" />
+                <ScalarProperty Name="CONTACT_PHONE_MASTER_ID" ColumnName="CONTACT_PHONE_MASTER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CONTACT_PHONE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CONTACT_PHONE">
+              <MappingFragment StoreEntitySet="CUSTOMER_CONTACT_PHONE">
+                <ScalarProperty Name="CONTACT_PHONE_ID" ColumnName="CONTACT_PHONE_ID" />
+                <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="PHONE_PRIMARY" ColumnName="PHONE_PRIMARY" />
+                <ScalarProperty Name="PHONE_CELL" ColumnName="PHONE_CELL" />
+                <ScalarProperty Name="PHONE_FAX" ColumnName="PHONE_FAX" />
+                <ScalarProperty Name="PHONE_EMERGENCY" ColumnName="PHONE_EMERGENCY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="CONTACT_PHONE_MASTER_ID" ColumnName="CONTACT_PHONE_MASTER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CONTACT_TYPE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CONTACT_TYPE">
+              <MappingFragment StoreEntitySet="CUSTOMER_CONTACT_TYPE">
+                <ScalarProperty Name="CUSTOMER_CONTACT_TYPE_ID" ColumnName="CUSTOMER_CONTACT_TYPE_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+              <MappingFragment StoreEntitySet="CUSTOMER_CONTACT_WEB_RESPONSIBILITY">
+                <ScalarProperty Name="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" ColumnName="CUSTOMER_CONTACT_WEB_RESPONSIBILITY_ID" />
+                <ScalarProperty Name="CONTACT_ID" ColumnName="CONTACT_ID" />
+                <ScalarProperty Name="WEB_RESPONSIBILITY_ID" ColumnName="WEB_RESPONSIBILITY_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CREDIT_CARD">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CREDIT_CARD">
+              <MappingFragment StoreEntitySet="CUSTOMER_CREDIT_CARD">
+                <ScalarProperty Name="CREDIT_CARD_ID" ColumnName="CREDIT_CARD_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CREDIT_CARD_TYPE_ID" ColumnName="CREDIT_CARD_TYPE_ID" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="NUMBER_ENCRYPTED" ColumnName="NUMBER_ENCRYPTED" />
+                <ScalarProperty Name="EXPIRATION" ColumnName="EXPIRATION" />
+                <ScalarProperty Name="EXPIRATION_ENCRYPTED" ColumnName="EXPIRATION_ENCRYPTED" />
+                <ScalarProperty Name="ZIP_CODE" ColumnName="ZIP_CODE" />
+                <ScalarProperty Name="ON_FILE" ColumnName="ON_FILE" />
+                <ScalarProperty Name="AUTHORIZED_SIGNERS" ColumnName="AUTHORIZED_SIGNERS" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="TOKEN_VAULT_ID" ColumnName="TOKEN_VAULT_ID" />
+                <ScalarProperty Name="ALL_SUITES" ColumnName="ALL_SUITES" />
+                <ScalarProperty Name="ALL_MENUS" ColumnName="ALL_MENUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_CREDIT_CARD_SUITE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_CREDIT_CARD_SUITE">
+              <MappingFragment StoreEntitySet="CUSTOMER_CREDIT_CARD_SUITE">
+                <ScalarProperty Name="CREDIT_CARD_SUITE_ID" ColumnName="CREDIT_CARD_SUITE_ID" />
+                <ScalarProperty Name="CREDIT_CARD_ID" ColumnName="CREDIT_CARD_ID" />
+                <ScalarProperty Name="SUITE_ID" ColumnName="SUITE_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_GENERAL_PREFERENCES">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_GENERAL_PREFERENCES">
+              <MappingFragment StoreEntitySet="CUSTOMER_GENERAL_PREFERENCES">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="APPLY_PREFERENCES" ColumnName="APPLY_PREFERENCES" />
+                <ScalarProperty Name="PRE_ORDER_BILLING_TYPE_ID" ColumnName="PRE_ORDER_BILLING_TYPE_ID" />
+                <ScalarProperty Name="ADD_ON_BILLING_TYPE_ID" ColumnName="ADD_ON_BILLING_TYPE_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+                <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+                <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+                <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+                <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+                <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+                <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+                <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+                <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+                <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_NOTE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_NOTE">
+              <MappingFragment StoreEntitySet="CUSTOMER_NOTE">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="NOTE_ID" ColumnName="NOTE_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PAR">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_PAR">
+              <MappingFragment StoreEntitySet="CUSTOMER_PAR">
+                <ScalarProperty Name="CUSTOMER_PAR_ID" ColumnName="CUSTOMER_PAR_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CUSTOMER_SUITE_ID" ColumnName="CUSTOMER_SUITE_ID" />
+                <ScalarProperty Name="INHERITED_CUSTOMER_PAR_ID" ColumnName="INHERITED_CUSTOMER_PAR_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PAR_LINES">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_PAR_LINES">
+              <MappingFragment StoreEntitySet="CUSTOMER_PAR_LINES">
+                <ScalarProperty Name="CUSTOMER_PAR_LINES_ID" ColumnName="CUSTOMER_PAR_LINES_ID" />
+                <ScalarProperty Name="CUSTOMER_PAR_ID" ColumnName="CUSTOMER_PAR_ID" />
+                <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PREFERENCE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_PREFERENCE">
+              <MappingFragment StoreEntitySet="CUSTOMER_PREFERENCE">
+                <ScalarProperty Name="CUSTOMER_PREFERENCE_ID" ColumnName="CUSTOMER_PREFERENCE_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="CUSTOMER_PREFERENCE_LIST_ID" ColumnName="CUSTOMER_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="BILLING_TYPE_ID" ColumnName="BILLING_TYPE_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PREFERENCE_LIST">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_PREFERENCE_LIST">
+              <MappingFragment StoreEntitySet="CUSTOMER_PREFERENCE_LIST">
+                <ScalarProperty Name="CUSTOMER_PREFERENCE_LIST_ID" ColumnName="CUSTOMER_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+              <MappingFragment StoreEntitySet="CUSTOMER_PREFERENCE_LOCATION_DETAILS">
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="CUSTOMER_PREFERENCE_LIST_ID" ColumnName="CUSTOMER_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="REQUIRED" ColumnName="REQUIRED" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" ColumnName="CUSTOMER_PREFERENCE_LOCATION_DETAILS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_SUITE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_SUITE">
+              <MappingFragment StoreEntitySet="CUSTOMER_SUITE">
+                <ScalarProperty Name="CUSTOMER_SUITE_ID" ColumnName="CUSTOMER_SUITE_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="SUITE_ID" ColumnName="SUITE_ID" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="VIP" ColumnName="VIP" />
+                <ScalarProperty Name="LIQUOR_RESTOCK" ColumnName="LIQUOR_RESTOCK" />
+                <ScalarProperty Name="LOCK_LIQUOR_CABINET" ColumnName="LOCK_LIQUOR_CABINET" />
+                <ScalarProperty Name="LOCK_REFRIGERATOR" ColumnName="LOCK_REFRIGERATOR" />
+                <ScalarProperty Name="DESSERT_CART" ColumnName="DESSERT_CART" />
+                <ScalarProperty Name="COLLECT_CREDIT_CARD" ColumnName="COLLECT_CREDIT_CARD" />
+                <ScalarProperty Name="SUITE_ATTENDANT" ColumnName="SUITE_ATTENDANT" />
+                <ScalarProperty Name="DISCOUNT_TYPE_ID" ColumnName="DISCOUNT_TYPE_ID" />
+                <ScalarProperty Name="DISCOUNT_AMOUNT" ColumnName="DISCOUNT_AMOUNT" />
+                <ScalarProperty Name="DISCOUNT_PERCENTAGE" ColumnName="DISCOUNT_PERCENTAGE" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+                <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+                <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+                <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+                <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+                <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+                <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+                <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+                <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+                <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+                <ScalarProperty Name="ATTRIBUTE11" ColumnName="ATTRIBUTE11" />
+                <ScalarProperty Name="ATTRIBUTE12" ColumnName="ATTRIBUTE12" />
+                <ScalarProperty Name="ATTRIBUTE13" ColumnName="ATTRIBUTE13" />
+                <ScalarProperty Name="ATTRIBUTE14" ColumnName="ATTRIBUTE14" />
+                <ScalarProperty Name="ATTRIBUTE15" ColumnName="ATTRIBUTE15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_SUITE_NOTE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_SUITE_NOTE">
+              <MappingFragment StoreEntitySet="CUSTOMER_SUITE_NOTE">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="SUITE_ID" ColumnName="SUITE_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="NOTE_ID" ColumnName="NOTE_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_SUITE_PREFERENCE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_SUITE_PREFERENCE">
+              <MappingFragment StoreEntitySet="CUSTOMER_SUITE_PREFERENCE">
+                <ScalarProperty Name="CUSTOMER_SUITE_PREFERENCE_ID" ColumnName="CUSTOMER_SUITE_PREFERENCE_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="SUITE_PREFERENCE_LIST_ID" ColumnName="SUITE_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_TYPE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.CUSTOMER_TYPE">
+              <MappingFragment StoreEntitySet="CUSTOMER_TYPE">
+                <ScalarProperty Name="CUSTOMER_TYPE_ID" ColumnName="CUSTOMER_TYPE_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUITEs">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.SUITE">
+              <MappingFragment StoreEntitySet="SUITE">
+                <ScalarProperty Name="SUITE_ID" ColumnName="SUITE_ID" />
+                <ScalarProperty Name="PANTRY_ID" ColumnName="PANTRY_ID" />
+                <ScalarProperty Name="SUITE_TYPE_ID" ColumnName="SUITE_TYPE_ID" />
+                <ScalarProperty Name="SUITE_NUMBER" ColumnName="SUITE_NUMBER" />
+                <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+                <ScalarProperty Name="MAX_CHAFFERS" ColumnName="MAX_CHAFFERS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+                <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+                <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+                <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+                <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+                <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+                <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+                <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+                <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+                <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+                <ScalarProperty Name="ATTRIBUTE11" ColumnName="ATTRIBUTE11" />
+                <ScalarProperty Name="ATTRIBUTE12" ColumnName="ATTRIBUTE12" />
+                <ScalarProperty Name="ATTRIBUTE13" ColumnName="ATTRIBUTE13" />
+                <ScalarProperty Name="ATTRIBUTE14" ColumnName="ATTRIBUTE14" />
+                <ScalarProperty Name="ATTRIBUTE15" ColumnName="ATTRIBUTE15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUITE_PREFERENCE_LIST">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.SUITE_PREFERENCE_LIST">
+              <MappingFragment StoreEntitySet="SUITE_PREFERENCE_LIST">
+                <ScalarProperty Name="SUITE_PREFERENCE_LIST_ID" ColumnName="SUITE_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUITE_PREFERENCE_LOCATION_DETAILS">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.SUITE_PREFERENCE_LOCATION_DETAILS">
+              <MappingFragment StoreEntitySet="SUITE_PREFERENCE_LOCATION_DETAILS">
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="SUITE_PREFERENCE_LIST_ID" ColumnName="SUITE_PREFERENCE_LIST_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="REQUIRED" ColumnName="REQUIRED" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="SUITE_PREFERENCE_LOCATION_DETAILS_ID" ColumnName="SUITE_PREFERENCE_LOCATION_DETAILS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUITE_TYPE">
+            <EntityTypeMapping TypeName="ProdLevyORDERSModel.SUITE_TYPE">
+              <MappingFragment StoreEntitySet="SUITE_TYPE">
+                <ScalarProperty Name="SUITE_TYPE_ID" ColumnName="SUITE_TYPE_ID" />
+                <ScalarProperty Name="SHORT_DESCRIPTION" ColumnName="SHORT_DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

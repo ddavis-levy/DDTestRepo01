@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="824d879c6b424bb1859e646346b1bcfa" Name="Diagram1" ZoomLevel="20">
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER" Width="1.875" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_ADDRESS" Width="1.5" PointX="5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CATEGORY" Width="1.5" PointX="0.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CONTACT" Width="1.5" PointX="18.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CONTACT_PHONE" Width="2.625" PointX="13.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CONTACT_TYPE" Width="1.5" PointX="16.25" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CONTACT_WEB_RESPONSIBILITY" Width="1.5" PointX="20.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CREDIT_CARD" Width="2.125" PointX="9.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_CREDIT_CARD_SUITE" Width="1.5" PointX="7.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_GENERAL_PREFERENCES" Width="1.5" PointX="5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_NOTE" Width="1.5" PointX="5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_PAR" Width="1.5" PointX="8" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_PAR_LINES" Width="1.5" PointX="11.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_PREFERENCE" Width="2.375" PointX="17" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_PREFERENCE_LIST" Width="2.375" PointX="7.375" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_PREFERENCE_LOCATION_DETAILS" Width="1.5" PointX="13.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_SUITE" Width="3.25" PointX="36.625" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_SUITE_NOTE" Width="1.5" PointX="28.125" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_SUITE_PREFERENCE" Width="2.875" PointX="21.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.CUSTOMER_TYPE" Width="1.75" PointX="0.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.SUITE" Width="2.625" PointX="20.875" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.SUITE_PREFERENCE_LIST" Width="2" PointX="10.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.SUITE_PREFERENCE_LOCATION_DETAILS" Width="3" PointX="32.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProdLevyORDERSModel.SUITE_TYPE" Width="1.5" PointX="16.125" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_CUSTOMER_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_CUSTOMER_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_GENERAL_PREFERENCES_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PAR_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PREFERENCE_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_SUITE_PREFERENCE_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERCREDITCARD_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERLOCATION_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERNOTE_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERSUITE_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_CONTACT_CUSTOMER_CONTACT_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_CONTACT_PHONE_CUSTOMER_CONTACT" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERCONTACTRESPONSIBILITY_CUSTOMERCONTACTRESPONSIBILITY" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERCREDITCARDSUITE_CARDID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERCREDITCARDSUITE_SUITEID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PAR_CUSTOMER_PAR" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PAR_CUSTOMER_SUITE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PAR_LINES_CUSTOMER_PAR" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PREFERENCE_CUSTOMER_PREFERENCE_LIST" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_PREFERENCE_LOCATION_DETAILS_PREFERENCE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMERSUITE_SUITE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_CUSTOMER_SUITE_PREFERENCE_SUITE_PREFERENCE_LIST" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_SUITETYPE_SUITE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProdLevyORDERSModel.FK_SUITE_PREFERENCE_LOCATION_DETAILS_PREFERENCE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
