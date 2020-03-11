@@ -3,3 +3,7 @@
 ################################################################################
 
 /DELETE ERD/DELETE ERD/bin
+/DELETE ERD/DELETE ERD/obj/Debug/edmxResourcesToEmbed
+/GrittyGrid/.vs/GrittyGrid/v16/Server/sqlite3
+/GrittyGrid/GrittyGrid/obj/Debug/edmxResourcesToEmbed
+/GrittyGrid/packages/EntityFramework.6.4.0
