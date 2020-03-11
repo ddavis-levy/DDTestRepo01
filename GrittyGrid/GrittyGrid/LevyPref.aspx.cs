@@ -97,17 +97,19 @@ namespace GrittyGrid
             if (e.Item is GridEditFormItem && !(e.Item is IGridInsertItem) && e.Item.IsInEditMode)
             {
                 GridEditFormItem item = e.Item as GridEditFormItem;
-                switch (item.OwnerTableView.Name)
-                {
-                    case "Customers":
-                        TextBox customerIDBox = item["CustomerID"].Controls[0] as TextBox;
-                        customerIDBox.Enabled = false;
-                        break;
-                    case "Details":
-                        TextBox productIDBox = item["ProductID"].Controls[0] as TextBox;
-                        productIDBox.Enabled = false;
-                        break;
-                }
+
+                // DD Fix - 
+                //switch (item.OwnerTableView.Name)
+                //{
+                //    case "Customers":
+                //        TextBox customerIDBox = item["CustomerID"].Controls[0] as TextBox;
+                //        customerIDBox.Enabled = false;
+                //        break;
+                //    case "Details":
+                //        TextBox productIDBox = item["ProductID"].Controls[0] as TextBox;
+                //        productIDBox.Enabled = false;
+                //        break;
+                //}
             }
         }
 

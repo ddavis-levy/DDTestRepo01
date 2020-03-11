@@ -148,3 +148,4 @@ C:\DELETE\GitRDone\DDTestRepo01\GrittyGrid\GrittyGrid\bin\Microsoft.CodeDom.Prov
 C:\DELETE\GitRDone\DDTestRepo01\GrittyGrid\GrittyGrid\obj\Debug\GrittyGrid.csproj.CopyComplete
 C:\DELETE\GitRDone\DDTestRepo01\GrittyGrid\GrittyGrid\obj\Debug\GrittyGrid.dll
 C:\DELETE\GitRDone\DDTestRepo01\GrittyGrid\GrittyGrid\obj\Debug\GrittyGrid.pdb
+C:\DELETE\GitRDone\DDTestRepo01\GrittyGrid\GrittyGrid\obj\Debug\GrittyGrid.csprojAssemblyReference.cache

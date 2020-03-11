@@ -31,50 +31,32 @@
             OnItemCreated="RadGrid1_ItemCreated">
             <PagerStyle Mode="NumericPages"></PagerStyle>
             <MasterTableView DataSourceID="SqlDataSource1" DataKeyNames="CustomerID" AllowMultiColumnSorting="True"
-                Width="100%" CommandItemDisplay="Top" Name="Customers">
+                Width="100%" CommandItemDisplay="Top" Name="Customers" EditMode="InPlace">
+
+<%-- 
+--%>
+
                 <DetailTables>
                     <telerik:GridTableView DataKeyNames="OrderID" DataSourceID="SqlDataSource2" Width="100%"
                         runat="server" CommandItemDisplay="Top" Name="Orders">
                         <ParentTableRelation>
                             <telerik:GridRelationFields DetailKeyField="CustomerID" MasterKeyField="CustomerID"></telerik:GridRelationFields>
                         </ParentTableRelation>
-                        <DetailTables>
-                            <telerik:GridTableView DataKeyNames="OrderID,ProductID" DataSourceID="SqlDataSource3"
-                                Width="100%" runat="server" CommandItemDisplay="Top" Name="Details">
-                                <ParentTableRelation>
-                                    <telerik:GridRelationFields DetailKeyField="OrderID" MasterKeyField="OrderID"></telerik:GridRelationFields>
-                                </ParentTableRelation>
-                                <Columns>
-                                    <telerik:GridEditCommandColumn UniqueName="EditCommandColumn1">
-                                        <HeaderStyle Width="20px"></HeaderStyle>
-                                        <ItemStyle CssClass="MyImageButton"></ItemStyle>
-                                    </telerik:GridEditCommandColumn>
-                                    <telerik:GridBoundColumn SortExpression="OrderID" HeaderText="OrderID" HeaderButtonType="TextButton"
-                                        DataField="OrderID" UniqueName="OrderID" ReadOnly="true" Visible="false">
-                                    </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn SortExpression="ProductID" HeaderText="ProductID" HeaderButtonType="TextButton"
-                                        DataField="ProductID" UniqueName="ProductID">
-                                    </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn SortExpression="UnitPrice" HeaderText="Unit Price" HeaderButtonType="TextButton"
-                                        DataField="UnitPrice" UniqueName="UnitPrice">
-                                    </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn SortExpression="Quantity" HeaderText="Quantity" HeaderButtonType="TextButton"
-                                        DataField="Quantity" UniqueName="Quantity">
-                                    </telerik:GridBoundColumn>
-                                    <telerik:GridBoundColumn SortExpression="Discount" HeaderText="Discount" HeaderButtonType="TextButton"
-                                        DataField="Discount" UniqueName="Discount">
-                                    </telerik:GridBoundColumn>
-                                    <telerik:GridButtonColumn ConfirmText="Delete this product?"
-                                        CommandName="Delete" Text="Delete" UniqueName="DeleteColumn1">
-                                        <HeaderStyle Width="20px"></HeaderStyle>
-                                        <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
-                                    </telerik:GridButtonColumn>
-                                </Columns>
-                                <SortExpressions>
-                                    <telerik:GridSortExpression FieldName="Quantity" SortOrder="Descending"></telerik:GridSortExpression>
-                                </SortExpressions>
-                            </telerik:GridTableView>
-                        </DetailTables>
+
+
+
+
+<%-- 
+--%>
+
+
+
+
+
+
+<%-- 
+--%>
+
                         <Columns>
                             <telerik:GridEditCommandColumn UniqueName="EditCommandColumn2">
                                 <HeaderStyle Width="20px"></HeaderStyle>
@@ -98,16 +80,86 @@
                                 <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
                             </telerik:GridButtonColumn>
                         </Columns>
+
+
+
+
+                <EditFormSettings EditFormType="Template">
+                    <FormTemplate>
+                        <table id="Table2" cellspacing="2" cellpadding="1" width="100%" border="0" rules="none"
+                            style="border-collapse: collapse;">
+                            <tr class="EditFormHeader">
+                                <td colspan="2">
+                                    <b>Employee Details</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td style="vertical-align: top">
+                                    <table id="Table1" cellspacing="1" cellpadding="1" width="250" border="0" class="module">
+                                        <tr>
+                                            <td>OrderID:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox ID="TextBox1" Text='<%# Bind("OrderID") %>' runat="server" TextMode="MultiLine"
+                                                    Rows="5" Columns="40" TabIndex="5">
+                                                </asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>OrderDate:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox ID="TextBox6" Text='<%# Bind("OrderDate") %>' runat="server" TextMode="MultiLine"
+                                                    Rows="2" Columns="40" TabIndex="6">
+                                                </asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right" colspan="2">
+                                    <asp:Button ID="btnUpdate" Text='<%# (Container is GridEditFormInsertItem) ? "Insert" : "Update" %>'
+                                        runat="server" CommandName='<%# (Container is GridEditFormInsertItem) ? "PerformInsert" : "Update" %>'></asp:Button>&nbsp;
+                                    <asp:Button ID="btnCancel" Text="Cancel" runat="server" CausesValidation="False"
+                                        CommandName="Cancel"></asp:Button>
+                                </td>
+                            </tr>
+                        </table>
+                    </FormTemplate>
+                </EditFormSettings>
+
+
+
                         <SortExpressions>
                             <telerik:GridSortExpression FieldName="OrderDate"></telerik:GridSortExpression>
                         </SortExpressions>
                     </telerik:GridTableView>
                 </DetailTables>
+
+
+
                 <Columns>
                     <telerik:GridEditCommandColumn UniqueName="EditCommandColumn">
                         <HeaderStyle Width="20px"></HeaderStyle>
                         <ItemStyle CssClass="MyImageButton"></ItemStyle>
                     </telerik:GridEditCommandColumn>
+
+                    
+
                     <telerik:GridBoundColumn SortExpression="CustomerID" HeaderText="CustomerID" HeaderButtonType="TextButton"
                         DataField="CustomerID" UniqueName="CustomerID" MaxLength="5">
                     </telerik:GridBoundColumn>
@@ -126,6 +178,15 @@
                         <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
                     </telerik:GridButtonColumn>
                 </Columns>
+
+
+
+
+
+
+
+
+
                 <SortExpressions>
                     <telerik:GridSortExpression FieldName="CompanyName"></telerik:GridSortExpression>
                 </SortExpressions>
